@@ -32,6 +32,9 @@ function love.load()
         resizable = false,
         vsync = true
     })
+
+    player1Score = 0
+    player2Score = 0
     
     --starting positions of paddles
     player1 = Paddle(10, 30, 5, 20)
@@ -48,7 +51,7 @@ function love.update(dt)
 
     if gameState == 'play' then
         if ball:collides(player1) then
-            ball.dx = -ball.dx * 1.03
+            ball.dx = -ball.dx * 1.05
             ball.x = player1.x + 5
 
             if ball.dy < 0 then
@@ -59,7 +62,7 @@ function love.update(dt)
         end
 
         if ball:collides(player2) then
-            ball.dx = -ball.dx * 1.03
+            ball.dx = -ball.dx * 1.05
             ball.x = player2.x - 4
 
             if ball.dy < 0 then
